@@ -5,7 +5,7 @@ import { TypeAnimation } from "react-type-animation";
 const HeroSection = () => {
   return (
     <section>
-      <div className="grid grid-cols-1 lg:grid-cols-12">
+      <div className="grid grid-cols-1 lg:grid-cols-12 mt-10">
         <div className="col-span-7 place-self-center text-center sm:text-left">
           <h1 className="text-white mb-4 text-4xl lg:text-6xl font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-red-600">
@@ -16,7 +16,7 @@ const HeroSection = () => {
               sequence={[
                 "Ashik",
                 1000,
-                "MERN Stack Developer",
+                "Web Developer",
                 1000,
                 "Wordpress Developer",
                 1000,
