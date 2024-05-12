@@ -1,4 +1,7 @@
+"use client";
+import { useState } from "react";
 import ProjectCard from "./ProjectCard";
+import ProjectTag from "./ProjectTag";
 
 const projectsData = [
   {
@@ -6,7 +9,7 @@ const projectsData = [
     title: "Porfolio Project",
     description: "Project 1 description",
     image: "/images/projects/portfolioW.png",
-    tag: ["All", "Web"],
+    tag: ["All", "Wordpress"],
     gitUrl: "/",
     previewUrl: "/",
   },
@@ -15,62 +18,63 @@ const projectsData = [
     title: "Agency Project Wordpress",
     description: "Project 2 description",
     image: "/images/projects/cdsW.png",
-    tag: ["All", "Web"],
+    tag: ["All", "Wordpress"],
     gitUrl: "/",
     previewUrl: "/",
   },
-  // {
-  //   id: 3,
-  //   title: "E-commerce Application",
-  //   description: "Project 3 description",
-  //   image: "/images/projects/3.png",
-  //   tag: ["All", "Web"],
-  //   gitUrl: "/",
-  //   previewUrl: "/",
-  // },
-  // {
-  //   id: 4,
-  //   title: "Food Ordering Application",
-  //   description: "Project 4 description",
-  //   image: "/images/projects/4.png",
-  //   tag: ["All", "Mobile"],
-  //   gitUrl: "/",
-  //   previewUrl: "/",
-  // },
-  // {
-  //   id: 5,
-  //   title: "React Firebase Template",
-  //   description: "Authentication and CRUD operations",
-  //   image: "/images/projects/5.png",
-  //   tag: ["All", "Web"],
-  //   gitUrl: "/",
-  //   previewUrl: "/",
-  // },
-  // {
-  //   id: 6,
-  //   title: "Full-stack Roadmap",
-  //   description: "Project 5 description",
-  //   image: "/images/projects/6.png",
-  //   tag: ["All", "Web"],
-  //   gitUrl: "/",
-  //   previewUrl: "/",
-  // },
+  {
+    id: 3,
+    title: "Agency Project Wordpress",
+    description: "Project 2 description",
+    image: "/images/projects/cdsW.png",
+    tag: ["All", "Wordpress"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 4,
+    title: "Agency Project Wordpress",
+    description: "Project 2 description",
+    image: "/images/projects/cdsW.png",
+    tag: ["All", "Wordpress"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
 ];
 
 const ProjectsSection = () => {
+  const [tag, seTag] = useState("All");
+
+  const handleTagChange = (newTag) => {
+    seTag(newTag);
+  };
+
+  const filtedredProjects = projectsData.filter((project) =>
+    project.tag.includes(tag)
+  );
+
   return (
     <>
       <h2>My Projects</h2>
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-        <button className="rounded-full border-2 border-purple-500 px-6 py-3 text-xl cursor-pointer ">
-          All
-        </button>
-        <button className="rounded-full border-2 border-slate-600 hover:border-white px-6 py-3 text-xl cursor-pointer ">
-          Web
-        </button>
+        <ProjectTag
+          onClick={handleTagChange}
+          name="All"
+          isSelected={tag === "All"}
+        />
+        <ProjectTag
+          onClick={handleTagChange}
+          name="Web"
+          isSelected={tag === "Web"}
+        />
+        <ProjectTag
+          onClick={handleTagChange}
+          name="Wordpress"
+          isSelected={tag === "Wordpress"}
+        />
       </div>
-      <div>
-        {projectsData.map((project) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {filtedredProjects.map((project) => (
           <ProjectCard
             key={project.id}
             title={project.title}
