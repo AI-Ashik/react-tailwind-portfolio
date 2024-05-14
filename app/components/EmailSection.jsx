@@ -1,7 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
-// import FacebookIcon from "/public/icons/facebook.png";
-// import InstagramIcon from "/public/icons/instagram.png";
-// import TwitterIcon from "/public/icons/twitter.png";
+import Image from "next/image";
+import Link from "next/link";
+import FacebookIcon from "/public/icons/facebook.png";
+import InstagramIcon from "/public/icons/instagram.png";
+import TwitterIcon from "/public/icons/twitter.png";
 
 const EmailSection = () => {
   return (
@@ -42,7 +44,7 @@ const EmailSection = () => {
               width={32}
             />
           </Link>
-        </div> */}
+        </div>
       </div>
       <div>
         <form className="flex flex-col gap-4" action="">
