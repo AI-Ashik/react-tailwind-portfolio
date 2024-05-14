@@ -2,6 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import FacebookIcon from "/public/icons/facebook.png";
+import InstagramIcon from "/public/icons/instagram.png";
+import TwitterIcon from "/public/icons/twitter.png";
 
 const EmailSection = () => {
   return (
@@ -17,10 +19,27 @@ const EmailSection = () => {
           className="socials flex flex-row
          gap-2"
         >
-          <Link href="github.com">
+          <Link href="facebook.com">
             <Image
               src={FacebookIcon}
-              alt="github icon"
+              alt="Facebook icon"
+              height={32}
+              width={32}
+            />
+          </Link>
+          <Link href="instagram.com">
+            <Image
+              src={InstagramIcon}
+              alt="Instagram icon"
+              height={32}
+              width={32}
+            />
+          </Link>
+
+          <Link href="twitter.com">
+            <Image
+              src={TwitterIcon}
+              alt="Twitter icon"
               height={32}
               width={32}
             />
